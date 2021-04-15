@@ -4,7 +4,6 @@ import Navigation from "./Navigation";
 const Header = () => {
   return (
     <header>
-      <span></span>
       <Navigation />
     </header>
   );
