@@ -44,7 +44,9 @@ const Navigation = () => {
     <div className="nav__container">
       <nav className="nav">
         <div className="nav__content">
-          <h1 className="nav__logo">Holidaze</h1>
+          <Link className="nav__logo--link" to="/">
+            <h1 className="nav__logo">Holidaze</h1>
+          </Link>
           <FontAwesomeIcon
             className="home__icon"
             icon={faBars}
