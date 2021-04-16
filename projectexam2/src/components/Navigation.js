@@ -9,30 +9,52 @@ const Navigation = () => {
   let menu;
   if (showMenu) {
     menu = (
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/hotels">Hotels</Link>
-        </li>
-        <li>
-          <Link to="/book">Book now</Link>
-        </li>
-        <li>
-          <Link to="/contactus">Contact us</Link>
-        </li>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-      </ul>
+      <>
+        <ul className="nav__list">
+          <li className="nav__item">
+            <Link className="nav__link" to="/">
+              Home
+            </Link>
+          </li>
+          <li className="nav__item">
+            <Link className="nav__link" to="/hotels">
+              Hotels
+            </Link>
+          </li>
+          <li className="nav__item">
+            <Link className="nav__link" to="/book">
+              Book now
+            </Link>
+          </li>
+          <li className="nav__item">
+            <Link className="nav__link" to="/contactus">
+              Contact us
+            </Link>
+          </li>
+          <li className="nav__item">
+            <Link className="nav__link" to="/login">
+              <button className="nav__button">Login</button>
+            </Link>
+          </li>
+        </ul>
+      </>
     );
   }
   return (
-    <nav>
-      <FontAwesomeIcon icon={faBars} onClick={() => setShowMenu(!showMenu)} />
-      {menu}
-    </nav>
+    <div className="nav__container">
+      <nav className="nav">
+        <div className="nav__content">
+          <h1 className="nav__logo">Holidaze</h1>
+          <FontAwesomeIcon
+            className="home__icon"
+            icon={faBars}
+            onClick={() => setShowMenu(!showMenu)}
+          />
+        </div>
+
+        {menu}
+      </nav>
+    </div>
   );
 };
 

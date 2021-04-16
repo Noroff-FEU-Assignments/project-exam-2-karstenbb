@@ -1,3 +1,50 @@
 body {
-  background-color: grey;
+  padding: 0;
+  margin: 0;
+}
+
+.backgroundPic__home {
+  max-width: 100%;
+  height: 100vh;
+  opacity: 0.4;
+}
+.home {
+  background-color: black;
+  text-align: center;
+  width: 100%;
+}
+.home__title {
+  position: absolute;
+  color: white;
+  z-index: 1;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-top: 15rem;
+  width: 100%;
+  font-size: 40px;
+}
+.home__paragraph {
+  position: absolute;
+  color: white;
+  z-index: 1;
+  margin-top: 24rem;
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 30px;
+  width: 100%;
+}
+
+nav {
+  position: absolute;
+  z-index: 2;
+  margin-left: 10rem;
+  color: white;
+}
+.home__icon {
+  color: white;
+  padding: 1rem;
+  font-size: 25px;
+}
+.home__border {
+  border-bottom: 2px solid red;
 }
