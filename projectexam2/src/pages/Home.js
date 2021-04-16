@@ -2,6 +2,8 @@ import React from "react";
 import background from "../images/homebackground.jpeg";
 
 const Home = () => {
+  let menu = document.querySelector(".nav");
+  console.log(menu);
   return (
     <>
       <div className="home">
