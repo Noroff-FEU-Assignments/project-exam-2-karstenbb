@@ -1,62 +1,77 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, fatimes } from "@fortawesome/free-solid-svg-icons";
+
 import { Link } from "react-router-dom";
 
 const Navigation = () => {
-  const [showMenu, setShowMenu] = useState(false);
-
-  let menu;
-  if (showMenu) {
-    menu = (
-      <>
-        <ul className="nav__list">
-          <li className="nav__item">
-            <Link className="nav__link" to="/">
-              Home
-            </Link>
-          </li>
-          <li className="nav__item">
-            <Link className="nav__link" to="/hotels">
-              Hotels
-            </Link>
-          </li>
-          <li className="nav__item">
-            <Link className="nav__link" to="/book">
-              Book now
-            </Link>
-          </li>
-          <li className="nav__item">
-            <Link className="nav__link" to="/contactus">
-              Contact us
-            </Link>
-          </li>
-          <li className="nav__item">
-            <Link className="nav__link" to="/login">
-              <button className="nav__button">Login</button>
-            </Link>
-          </li>
-        </ul>
-      </>
-    );
-  }
+  const [showMenu, setShowMenu] = useState(true);
+  console.log(window.location.pathname);
   return (
-    <div className="nav__container">
-      <nav className="nav">
-        <div className="nav__content">
-          <Link className="nav__logo--link" to="/">
-            <h1 className="nav__logo">Holidaze</h1>
-          </Link>
+    <>
+      <div className="navbar">
+        <div className="left">
+          <div className="nav__left">
+            <Link className="nav__logo" to="/">
+              Holidaze
+            </Link>
+          </div>
+        </div>
+        <div className="right">
+          <div className="nav__menu" id={showMenu ? "" : "hidden"}>
+            <ul className="nav__list">
+              <Link className="nav__link" to="/">
+                <li
+                  onClick={() => setShowMenu(!showMenu)}
+                  className="nav__item"
+                >
+                  Home
+                </li>
+              </Link>
+              <Link className="nav__link" to="/hotels">
+                <li
+                  onClick={() => setShowMenu(!showMenu)}
+                  className="nav__item"
+                >
+                  Hotels
+                </li>
+              </Link>
+              <Link className="nav__link" to="/book">
+                <li
+                  onClick={() => setShowMenu(!showMenu)}
+                  className="nav__item"
+                >
+                  Book now
+                </li>
+              </Link>
+              <Link className="nav__link" to="/contactus">
+                <li
+                  onClick={() => setShowMenu(!showMenu)}
+                  className="nav__item"
+                >
+                  Contact
+                </li>
+              </Link>
+              <Link className="nav__link" to="/login">
+                <button
+                  onClick={() => setShowMenu(!showMenu)}
+                  className="login-btn"
+                >
+                  Login
+                </button>
+              </Link>
+            </ul>
+          </div>
           <FontAwesomeIcon
-            className="home__icon"
             icon={faBars}
             onClick={() => setShowMenu(!showMenu)}
-          />
+            className="menu--toggle"
+          >
+            Open
+          </FontAwesomeIcon>
         </div>
-
-        {menu}
-      </nav>
-    </div>
+      </div>
+    </>
   );
 };
 
