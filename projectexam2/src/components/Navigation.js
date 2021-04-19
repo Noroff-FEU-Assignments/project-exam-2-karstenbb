@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, fatimes } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 import { Link } from "react-router-dom";
 
 const Navigation = () => {
-  const [showMenu, setShowMenu] = useState(true);
-  console.log(window.location.pathname);
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
     <>
       <div className="navbar">
@@ -66,9 +66,7 @@ const Navigation = () => {
             icon={faBars}
             onClick={() => setShowMenu(!showMenu)}
             className="menu--toggle"
-          >
-            Open
-          </FontAwesomeIcon>
+          ></FontAwesomeIcon>
         </div>
       </div>
     </>
