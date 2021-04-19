@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navigation = () => {
   const [showMenu, setShowMenu] = useState(true);
@@ -20,38 +19,55 @@ const Navigation = () => {
         <div className="right">
           <div className="nav__menu" id={showMenu ? "" : "hidden"}>
             <ul className="nav__list">
-              <Link className="nav__link" to="/">
+              <NavLink
+                activeStyle={{ borderBottom: "2px solid black" }}
+                className="nav__link"
+                exact
+                to="/"
+              >
                 <li
                   onClick={() => setShowMenu(!showMenu)}
                   className="nav__item"
                 >
                   Home
                 </li>
-              </Link>
-              <Link className="nav__link" to="/hotels">
+              </NavLink>
+              <NavLink
+                activeStyle={{ borderBottom: "2px solid black" }}
+                className="nav__link"
+                to="/hotels"
+              >
                 <li
                   onClick={() => setShowMenu(!showMenu)}
                   className="nav__item"
                 >
                   Hotels
                 </li>
-              </Link>
-              <Link className="nav__link" to="/book">
+              </NavLink>
+              <NavLink
+                activeStyle={{ borderBottom: "2px solid black" }}
+                className="nav__link"
+                to="/book"
+              >
                 <li
                   onClick={() => setShowMenu(!showMenu)}
                   className="nav__item"
                 >
                   Book now
                 </li>
-              </Link>
-              <Link className="nav__link" to="/contactus">
+              </NavLink>
+              <NavLink
+                activeStyle={{ borderBottom: "2px solid black" }}
+                className="nav__link"
+                to="/contactus"
+              >
                 <li
                   onClick={() => setShowMenu(!showMenu)}
                   className="nav__item"
                 >
                   Contact
                 </li>
-              </Link>
+              </NavLink>
               <Link className="nav__link" to="/login">
                 <button
                   onClick={() => setShowMenu(!showMenu)}

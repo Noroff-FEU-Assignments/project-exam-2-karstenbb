@@ -10,6 +10,7 @@ const FetchHotels = () => {
       .then((res) => res.json())
       .then(
         (result) => {
+          console.log(result);
           setLoading(true);
           setPlaces(result);
         },
@@ -21,14 +22,18 @@ const FetchHotels = () => {
   }, []);
   if (error) {
     return <div>Error: {error.message}</div>;
-  } else if (!setLoading) {
+  } else if (!loading) {
     return <div>Loading...</div>;
   } else {
     return (
       <>
         <div>
           {places.map((item) => (
-            <div key={item.id}>{item.title}</div>
+            <div key={item.id}>
+              <img alt={item.title} src={item.picture} />
+              {item.title} {item.price}{" "}
+              {item.recommended ? "recommended" : "not recommended"}
+            </div>
           ))}
         </div>
       </>
