@@ -6,17 +6,17 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem;
 }
 .place {
   width: 80%;
   padding: 1rem;
   margin: 1rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  border: 1px solid black;
+  border: 1px solid #295885;
   background-color: white;
+  border-radius: 5px;
 }
 
 .place__info {

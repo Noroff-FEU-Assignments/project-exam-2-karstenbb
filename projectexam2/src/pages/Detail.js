@@ -12,7 +12,7 @@ const Detail = () => {
   const { id } = useParams();
 
   if (!id) {
-    history.push("/");
+    history.push("/hotels");
   }
   const url = api_url + "/" + id;
   useEffect(() => {
@@ -41,11 +41,18 @@ const Detail = () => {
   }
 
   return (
-    <div>
-      <h1 className="place__title">{hotels.title}</h1>
-      <img className="place__img" alt={hotels.title} src={hotels.picture}></img>
-      <p>{hotels.description}</p>
-    </div>
+    <>
+      <h1 className="hotel__title">{hotels.title}</h1>
+      <div className="detail__container">
+        <img
+          className="detail__img"
+          alt={hotels.title}
+          src={hotels.picture}
+        ></img>
+        <p className="detail__price">{hotels.price} NOK</p>
+        <p className="detail__description">{hotels.description}</p>
+      </div>
+    </>
   );
 };
 

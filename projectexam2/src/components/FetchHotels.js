@@ -48,10 +48,10 @@ const FetchHotels = () => {
             ></input>
           </form>
         </div>
-        {filteredHotels.map((hotel) => {
-          return (
-            <>
-              <div className="container" key={hotel.id}>
+        <div className="container">
+          {filteredHotels.map((hotel) => {
+            return (
+              <>
                 <div className="place" key={hotel.id}>
                   <img
                     className="place__img"
@@ -63,21 +63,22 @@ const FetchHotels = () => {
                     <p className="place__recommendeed">
                       {hotel.recommended ? "recommended" : "not recommended"}
                     </p>
-                    <div className="place__details">
-                      <Link
-                        className="place__details--link"
-                        to={`/detail/${hotel.id}`}
-                        key={hotel.id}
-                      >
-                        <button className="place__btn">See more</button>
-                      </Link>
-                    </div>
+                    <p className="place__price">{hotel.price} NOK</p>
+                  </div>
+                  <div className="place__details">
+                    <Link
+                      className="place__details--link"
+                      to={`/detail/${hotel.id}`}
+                      key={hotel.id}
+                    >
+                      <button className="place__btn">See more</button>
+                    </Link>
                   </div>
                 </div>
-              </div>
-            </>
-          );
-        })}
+              </>
+            );
+          })}
+        </div>
       </>
     );
   }
