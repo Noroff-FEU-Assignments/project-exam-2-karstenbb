@@ -38,17 +38,42 @@ const FetchHotels = () => {
   if (filtered === true) {
     return (
       <>
-        <input
-          type="text"
-          className="search"
-          name="query"
-          onChange={handleSearch}
-        ></input>
+        <div className="form-container">
+          <form className="form">
+            <input
+              onChange={handleSearch}
+              className="search"
+              type="text"
+              placeholder="Search for places"
+            ></input>
+          </form>
+        </div>
         {filteredHotels.map((hotel) => {
           return (
             <>
-              <div className="place" key={hotel.id}>
-                <h1 key={hotel.id}>{hotel.title}</h1>
+              <div className="container" key={hotel.id}>
+                <div className="place" key={hotel.id}>
+                  <img
+                    className="place__img"
+                    alt={hotel.title}
+                    src={hotel.picture}
+                  />
+                  <h1 className="place__title">{hotel.title}</h1>{" "}
+                  <div className="place__info">
+                    <p className="place__recommendeed">
+                      {hotel.recommended ? "recommended" : "not recommended"}
+                    </p>
+                    <div className="place__details">
+                      <Link
+                        className="place__details--link"
+                        to={`/detail/${hotel.id}`}
+                        key={hotel.id}
+                      >
+                        <button className="place__btn">See more</button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
             </>
           );
@@ -69,7 +94,7 @@ const FetchHotels = () => {
               onChange={handleSearch}
               className="search"
               type="text"
-              placeholder="Search for places"
+              placeholder="Search places"
             ></input>
           </form>
         </div>
@@ -82,11 +107,17 @@ const FetchHotels = () => {
                 <p className="place__recommendeed">
                   {item.recommended ? "recommended" : "not recommended"}
                 </p>
-                <p className="place__price">{item.price}</p>
+                <p className="place__price">{item.price} NOK</p>
               </div>
-              <Link to="/specific:id">
-                <button>See more</button>
-              </Link>
+              <div className="place__details">
+                <Link
+                  className="place__details--link"
+                  to={`/detail/${item.id}`}
+                  key={item.id}
+                >
+                  <button className="place__btn">See more</button>
+                </Link>
+              </div>
             </div>
           ))}
         </div>

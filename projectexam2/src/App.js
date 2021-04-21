@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Hotels from "./pages/Hotels";
 import Book from "./pages/Book";
 import Contact from "./pages/Contact";
+import Detail from "./pages/Detail";
 import Login from "./pages/Login";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/hotels">{Hotels}</Route>
         <Route path="/book">{Book}</Route>
         <Route path="/contactus">{Contact}</Route>
+        <Route path="/detail/:id" component={Detail}></Route>
         <Route path="/login">{Login}</Route>
       </Switch>
     </Router>

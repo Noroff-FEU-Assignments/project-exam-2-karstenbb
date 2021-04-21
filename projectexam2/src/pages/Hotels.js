@@ -7,7 +7,7 @@ const Hotels = () => {
 
   return (
     <>
-      <h1>Hotels</h1>
+      <h1 className="hotel__title">Places to stay</h1>
 
       <div>
         <FetchHotels></FetchHotels>
