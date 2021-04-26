@@ -86,7 +86,11 @@
   .nav__menu {
     display: none;
   }
-
+  .nav__line {
+    margin-top: 1rem;
+    border-bottom: 2px solid white;
+    width: 80px;
+  }
   #hidden {
     max-width: 100%;
     background-color: #295885;

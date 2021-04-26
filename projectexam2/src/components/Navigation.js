@@ -3,12 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { Link, NavLink } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
-import { useHistory } from "react-router-dom";
 
 const Navigation = () => {
   const [showMenu, setShowMenu] = useState(true);
   const [auth, setAuth] = useContext(AuthContext);
-  const history = useHistory();
+
   function logOut() {
     setAuth(null);
     setShowMenu(!showMenu);
@@ -76,9 +75,48 @@ const Navigation = () => {
                 </li>
               </NavLink>
               {auth ? (
-                <button onClick={logOut} className="login-btn">
-                  Logout
-                </button>
+                <>
+                  <div className="nav__line"></div>
+                  <NavLink
+                    activeStyle={{ borderBottom: "2px solid black" }}
+                    className="nav__link"
+                    to="/booklist"
+                  >
+                    <li
+                      onClick={() => setShowMenu(!showMenu)}
+                      className="nav__item"
+                    >
+                      List
+                    </li>
+                  </NavLink>
+                  <NavLink
+                    activeStyle={{ borderBottom: "2px solid black" }}
+                    className="nav__link"
+                    to="/contactlist"
+                  >
+                    <li
+                      onClick={() => setShowMenu(!showMenu)}
+                      className="nav__item"
+                    >
+                      Messages
+                    </li>
+                  </NavLink>
+                  <NavLink
+                    activeStyle={{ borderBottom: "2px solid black" }}
+                    className="nav__link"
+                    to="/addplace"
+                  >
+                    <li
+                      onClick={() => setShowMenu(!showMenu)}
+                      className="nav__item"
+                    >
+                      New establishment
+                    </li>
+                  </NavLink>
+                  <button onClick={logOut} className="login-btn">
+                    Logout
+                  </button>
+                </>
               ) : (
                 <Link className="nav__link" to="/login">
                   <button

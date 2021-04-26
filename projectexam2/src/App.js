@@ -8,6 +8,8 @@ import Detail from "./pages/Detail";
 import Login from "./pages/Login";
 import AddPlace from "./pages/AddPlace";
 import { AuthProvider } from "./context/AuthContext";
+import ContactList from "./pages/ContactList";
+import BookList from "./pages/BookList";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="/detail/:id" component={Detail}></Route>
           <Route path="/login" component={Login}></Route>
           <Route path="/addplace" component={AddPlace}></Route>
+          <Route path="/contactlist" component={ContactList}></Route>
+          <Route path="/booklist" component={BookList}></Route>
         </Switch>
       </Router>
     </AuthProvider>

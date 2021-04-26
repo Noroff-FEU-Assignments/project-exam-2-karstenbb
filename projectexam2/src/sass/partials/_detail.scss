@@ -19,3 +19,16 @@
 .detail__description {
   letter-spacing: 1px;
 }
+.place__details--link {
+  text-decoration: none;
+  color: black;
+}
+.search__dropdown {
+  border: 2px solid black;
+}
+.open {
+  display: block;
+}
+.closed {
+  display: none;
+}

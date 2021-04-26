@@ -8,6 +8,7 @@ const FetchHotels = () => {
   const [places, setPlaces] = useState([]);
   const [filteredHotels, setFilteredHotels] = useState([]);
   const [filtered, setFiltered] = useState(false);
+  const [toggles, setToggles] = useState("closed");
 
   useEffect(() => {
     fetch(api_url + "/hotels")
@@ -30,11 +31,17 @@ const FetchHotels = () => {
     });
     setFiltered(true);
     setFilteredHotels(filterHotels);
+    if (e.target.value === "") {
+      setToggles("closed");
+    } else {
+      setToggles("open");
+    }
   }
   const filterInput = document.querySelector(".search");
   if (filterInput === "") {
     setFiltered(false);
   }
+
   if (filtered === true) {
     return (
       <>
@@ -46,6 +53,20 @@ const FetchHotels = () => {
               type="text"
               placeholder="Search for places"
             ></input>
+            <div className={toggles}>
+              {filteredHotels.map((hotel) => {
+                return (
+                  <div key={hotel.id}>
+                    <Link
+                      className="place__details--link"
+                      to={`/detail/${hotel.id}`}
+                    >
+                      <p>{hotel.title}</p>
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
           </form>
         </div>
         <div className="container">

@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { api_url } from "../utils/Constants";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 
 const BookNow = () => {
   const [error, setError] = useState(null);
@@ -10,19 +8,13 @@ const BookNow = () => {
   const [place, setPlace] = useState([]);
 
   const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(null);
-  const onChange = (dates) => {
-    const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
-    console.log(start, end);
-  };
+  const [endDate, setEndDate] = useState(new Date());
 
   useEffect(() => {
     const fetchPlaces = async () => {
       try {
         const response = await axios.get(`${api_url}/hotels`);
-        console.log(response.data);
+
         if (response.status === 200) {
           setPlace(response.data);
         } else {
@@ -35,7 +27,6 @@ const BookNow = () => {
       }
     };
     fetchPlaces();
-    console.log(place);
   }, []);
   if (loading) {
     return <div>Loading ....</div>;
@@ -46,14 +37,14 @@ const BookNow = () => {
     return (
       <>
         <div className="container__calendar">
-          <DatePicker
-            selected={startDate}
-            onChange={onChange}
-            startDate={startDate}
-            endDate={endDate}
-            selectsRange
-            inline
-          />
+          <input
+            onChange={(e) => setStartDate(e.target.value)}
+            type="date"
+          ></input>
+          <input
+            onChange={(e) => setEndDate(e.target.value)}
+            type="date"
+          ></input>
         </div>
         <div className="container">
           {place.map((item) => (
