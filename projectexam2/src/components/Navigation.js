@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { Link, NavLink } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
+import { useHistory } from "react-router-dom";
 
 const Navigation = () => {
   const [showMenu, setShowMenu] = useState(true);
-
+  const [auth, setAuth] = useContext(AuthContext);
+  const history = useHistory();
+  function logOut() {
+    setAuth(null);
+    setShowMenu(!showMenu);
+  }
   return (
     <>
       <div className="navbar">
@@ -68,14 +75,20 @@ const Navigation = () => {
                   Contact
                 </li>
               </NavLink>
-              <Link className="nav__link" to="/login">
-                <button
-                  onClick={() => setShowMenu(!showMenu)}
-                  className="login-btn"
-                >
-                  Login
+              {auth ? (
+                <button onClick={logOut} className="login-btn">
+                  Logout
                 </button>
-              </Link>
+              ) : (
+                <Link className="nav__link" to="/login">
+                  <button
+                    onClick={() => setShowMenu(!showMenu)}
+                    className="login-btn"
+                  >
+                    Login
+                  </button>
+                </Link>
+              )}
             </ul>
           </div>
           <FontAwesomeIcon

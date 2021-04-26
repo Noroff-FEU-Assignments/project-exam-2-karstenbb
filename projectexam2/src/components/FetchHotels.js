@@ -10,7 +10,7 @@ const FetchHotels = () => {
   const [filtered, setFiltered] = useState(false);
 
   useEffect(() => {
-    fetch(api_url)
+    fetch(api_url + "/hotels")
       .then((res) => res.json())
       .then(
         (result) => {
@@ -51,31 +51,28 @@ const FetchHotels = () => {
         <div className="container">
           {filteredHotels.map((hotel) => {
             return (
-              <>
-                <div className="place" key={hotel.id}>
-                  <img
-                    className="place__img"
-                    alt={hotel.title}
-                    src={hotel.picture}
-                  />
-                  <h1 className="place__title">{hotel.title}</h1>{" "}
-                  <div className="place__info">
-                    <p className="place__recommendeed">
-                      {hotel.recommended ? "recommended" : "not recommended"}
-                    </p>
-                    <p className="place__price">{hotel.price} NOK</p>
-                  </div>
-                  <div className="place__details">
-                    <Link
-                      className="place__details--link"
-                      to={`/detail/${hotel.id}`}
-                      key={hotel.id}
-                    >
-                      <button className="place__btn">See more</button>
-                    </Link>
-                  </div>
+              <div className="place" key={hotel.id}>
+                <img
+                  className="place__img"
+                  alt={hotel.title}
+                  src={hotel.picture}
+                />
+                <h1 className="place__title">{hotel.title}</h1>{" "}
+                <div className="place__info">
+                  <p className="place__recommendeed">
+                    {hotel.recommended ? "recommended" : "not recommended"}
+                  </p>
+                  <p className="place__price">{hotel.price} NOK</p>
                 </div>
-              </>
+                <div className="place__details">
+                  <Link
+                    className="place__details--link"
+                    to={`/detail/${hotel.id}`}
+                  >
+                    <button className="place__btn">See more</button>
+                  </Link>
+                </div>
+              </div>
             );
           })}
         </div>

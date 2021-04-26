@@ -120,3 +120,12 @@
     padding: 0;
   }
 }
+
+.container__calendar {
+  display: flex;
+  justify-content: center;
+}
+.react-datepicker {
+  margin: 0 auto;
+  justify-content: center;
+}

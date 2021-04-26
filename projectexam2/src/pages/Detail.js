@@ -14,7 +14,7 @@ const Detail = () => {
   if (!id) {
     history.push("/hotels");
   }
-  const url = api_url + "/" + id;
+  const url = api_url + "/hotels/" + id;
   useEffect(() => {
     const fetchHotels = async () => {
       try {
