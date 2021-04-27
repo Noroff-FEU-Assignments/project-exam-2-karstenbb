@@ -24,6 +24,7 @@ const ContactList = () => {
 
   return (
     <>
+      {loading ? <div>Loading ...</div> : null}
       {messages.length === 0 ? <div>No messages found</div> : null}
       {messages.map((message) => (
         <div key={message.id}>

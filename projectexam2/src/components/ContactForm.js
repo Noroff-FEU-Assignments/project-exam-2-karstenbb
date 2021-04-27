@@ -2,8 +2,9 @@ import React from "react";
 import { useState } from "react";
 import { api_url } from "../utils/Constants";
 import { useFormik } from "formik";
-import * as Yup from "yup";
+import * as yup from "yup";
 import axios from "axios";
+import contactBackground from "../images/contactme.jpeg";
 
 const ContactForm = () => {
   const [submitting, setSubmitting] = useState(false);
@@ -22,10 +23,14 @@ const ContactForm = () => {
       email: "",
       message: "",
     },
-    validationSchema: Yup.object({
-      name: Yup.string().min(3).required("Please enter your a name"),
-      email: Yup.string().required("Please enter your email"),
-      message: Yup.string()
+    validationSchema: yup.object({
+      name: yup.string().min(3).required("Please enter your a name"),
+      email: yup
+        .string()
+        .email("Email must be a valid email")
+        .required("Please enter your email"),
+      message: yup
+        .string()
         .min(10, "The message must be at least 10 characters long")
         .required("Please enter a message"),
     }),
@@ -47,11 +52,16 @@ const ContactForm = () => {
     },
   });
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div className="form__wrapper">
+      <form className="contact__form" onSubmit={handleSubmit}>
+        <h1>Contact us</h1>
         {success ? <div>Successfully sendt a message</div> : null}
-        <label htmlFor="name">Name:</label>
+        <label className="contact__label" htmlFor="name">
+          Name:
+        </label>
         <input
+          className="contact__input"
+          placeholder="Name..."
           type="text"
           name="name"
           id="name"
@@ -60,8 +70,12 @@ const ContactForm = () => {
           onChange={handleChange}
         />
         {touched.name && errors.name ? <div>{errors.name}</div> : null}
-        <label htmlFor="email">Email:</label>
+        <label className="contact__label" htmlFor="email">
+          Email:
+        </label>
         <input
+          placeholder="example@example.com"
+          className="contact__input"
           type="text"
           name="email"
           id="email"
@@ -70,8 +84,12 @@ const ContactForm = () => {
           onChange={handleChange}
         />
         {touched.email && errors.email ? <div>{errors.email}</div> : null}
-        <label htmlFor="name">Message:</label>
+        <label className="contact__label" htmlFor="name">
+          Message:
+        </label>
         <textarea
+          placeholder="Write your message here"
+          className="contact__input"
           type="text"
           name="message"
           id="message"
@@ -80,9 +98,16 @@ const ContactForm = () => {
           onChange={handleChange}
         />
         {touched.message && errors.message ? <div>{errors.message}</div> : null}
-        <button type="submit">{submitting ? "Sending ..." : "Send"}</button>
+        <button className="contact__btn" type="submit">
+          {submitting ? "Sending ..." : "Send"}
+        </button>
       </form>
-    </>
+      <img
+        className="backgroundPic__contact"
+        src={contactBackground}
+        alt="Homebackground"
+      />
+    </div>
   );
 };
 

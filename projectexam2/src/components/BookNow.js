@@ -10,6 +10,13 @@ const BookNow = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
+  function onBookNow() {
+    const bookbtn = document.querySelector(".place__btn");
+    const item = document.querySelector(".place");
+    console.log(item);
+    console.log(startDate, endDate);
+  }
+
   useEffect(() => {
     const fetchPlaces = async () => {
       try {
@@ -58,7 +65,9 @@ const BookNow = () => {
                 <p className="place__price">{item.price} NOK</p>
               </div>
               <div className="place__details">
-                <button className="place__btn">Book now</button>
+                <button onClick={onBookNow} className="place__btn">
+                  Book now
+                </button>
               </div>
             </div>
           ))}
