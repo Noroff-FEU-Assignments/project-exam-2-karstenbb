@@ -23,11 +23,11 @@ const ContactForm = () => {
       message: "",
     },
     validationSchema: Yup.object({
-      name: Yup.string().min(3).required("Please your a name"),
-      email: Yup.string().required("Please your email"),
+      name: Yup.string().min(3).required("Please enter your a name"),
+      email: Yup.string().required("Please enter your email"),
       message: Yup.string()
         .min(10, "The message must be at least 10 characters long")
-        .required("Please a message"),
+        .required("Please enter a message"),
     }),
     onSubmit: async (values) => {
       setSubmitting(true);

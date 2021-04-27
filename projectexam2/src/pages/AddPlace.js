@@ -33,10 +33,10 @@ const AddPlace = () => {
       recommended: false,
     },
     validationSchema: Yup.object({
-      description: Yup.string().required("Required"),
-      title: Yup.string().required(),
-      price: Yup.number().required("Required"),
-      picture: Yup.string().required("Required"),
+      description: Yup.string().required("Please add a description"),
+      title: Yup.string().required("Please enter a title"),
+      price: Yup.number().required("Please enter a price"),
+      picture: Yup.string().required("Please enter a picture url"),
       recommended: Yup.boolean(),
     }),
     onSubmit: async (values) => {

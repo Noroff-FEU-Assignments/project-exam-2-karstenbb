@@ -7,6 +7,7 @@ const ContactList = () => {
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([]);
   const http = useAxios();
+
   useEffect(async () => {
     try {
       const response = await http.get(`${api_url}/contacts`);
@@ -23,6 +24,7 @@ const ContactList = () => {
 
   return (
     <>
+      {messages.length === 0 ? <div>No messages found</div> : null}
       {messages.map((message) => (
         <div key={message.id}>
           <div>
