@@ -57,11 +57,15 @@ const AddPlace = () => {
     },
   });
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div className="addplace__wrapper">
+      <form className="addplace__form" onSubmit={handleSubmit}>
         {success ? <div>Succssfully added new place</div> : null}
-        <label htmlFor="title">Title</label>
+        <label className="addplace__label" htmlFor="title">
+          Title
+        </label>
         <input
+          placeholder="Place title"
+          className="addplace__input"
           onBlur={handleBlur}
           value={values.title}
           onChange={handleChange}
@@ -69,9 +73,15 @@ const AddPlace = () => {
           name="title"
           type="text"
         />
-        {touched.title && errors.title ? <div>{errors.title}</div> : null}
-        <label htmlFor="description">Description</label>
+        {touched.title && errors.title ? (
+          <div className="addplace__error">{errors.title}</div>
+        ) : null}
+        <label className="addplace__label" htmlFor="description">
+          Description
+        </label>
         <input
+          placeholder="Description"
+          className="addplace__input"
           onBlur={handleBlur}
           value={values.description}
           onChange={handleChange}
@@ -80,10 +90,14 @@ const AddPlace = () => {
           type="text"
         />
         {touched.description && errors.description ? (
-          <div>{errors.description}</div>
+          <div className="addplace__error">{errors.description}</div>
         ) : null}
-        <label htmlFor="price">Price</label>
+        <label className="addplace__label" htmlFor="price">
+          Price
+        </label>
         <input
+          placeholder="Price"
+          className="addplace__input"
           onBlur={handleBlur}
           value={values.price}
           onChange={handleChange}
@@ -91,9 +105,15 @@ const AddPlace = () => {
           name="price"
           type="number"
         />
-        {touched.price && errors.price ? <div>{errors.price}</div> : null}
-        <label htmlFor="picture">Picture url</label>
+        {touched.price && errors.price ? (
+          <div className="addplace__error">{errors.price}</div>
+        ) : null}
+        <label className="addplace__label" htmlFor="picture">
+          Picture url
+        </label>
         <input
+          placeholder="Picture url"
+          className="addplace__input"
           onBlur={handleBlur}
           value={values.picture}
           onChange={handleChange}
@@ -101,19 +121,26 @@ const AddPlace = () => {
           name="picture"
           type="text"
         />
-        {touched.picture && errors.picture ? <div>{errors.picture}</div> : null}
-        <label htmlFor="recommended">Recommended</label>
+        {touched.picture && errors.picture ? (
+          <div className="addplace__error">{errors.picture}</div>
+        ) : null}
+        <label className="addplace__label" htmlFor="recommended">
+          Recommended ?
+        </label>
         <input
+          className="addplace__input"
           onBlur={handleBlur}
           value={values.recommended}
           onChange={handleChange}
           id="recommended"
           name="recommended"
           type="checkbox"
-        />
-        <button type="submit">{submitting ? "Adding ..." : "Add"}</button>
+        ></input>
+        <button className="addplace__btn" type="submit">
+          {submitting ? "Adding ..." : "Add"}
+        </button>
       </form>
-    </>
+    </div>
   );
 };
 export default AddPlace;

@@ -20,6 +20,7 @@
   color: white;
   border: none;
   padding: 0.5rem;
+  border-radius: 5px;
 }
 .contact__label {
   margin-top: 0.5rem;
@@ -31,4 +32,19 @@
 .form__wrapper {
   display: flex;
   justify-content: center;
+}
+.contact__title {
+  padding: 1rem;
+  text-align: center;
+}
+.textarea__input {
+  height: 70px;
+}
+.contact__success {
+  color: green;
+  padding: 1rem 0;
+}
+.contact__error {
+  color: red;
+  padding: 1rem 0;
 }

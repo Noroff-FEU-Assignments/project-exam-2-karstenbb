@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { api_url } from "../utils//Constants";
 import { Link } from "react-router-dom";
+import { faLaptopHouse } from "@fortawesome/free-solid-svg-icons";
 
 const FetchHotels = () => {
   const [error, setError] = useState(null);
@@ -36,6 +37,10 @@ const FetchHotels = () => {
     } else {
       setToggles("open");
     }
+
+    if (filterHotels.length === 0) {
+      setToggles("closed");
+    }
   }
   const filterInput = document.querySelector(".search");
   if (filterInput === "") {
@@ -56,7 +61,7 @@ const FetchHotels = () => {
             <div className={toggles}>
               {filteredHotels.map((hotel) => {
                 return (
-                  <div key={hotel.id}>
+                  <div className="place__filter" key={hotel.id}>
                     <Link
                       className="place__details--link"
                       to={`/detail/${hotel.id}`}

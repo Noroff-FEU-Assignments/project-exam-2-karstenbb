@@ -13,7 +13,7 @@ const BookNow = () => {
   function onBookNow() {
     const bookbtn = document.querySelector(".place__btn");
     const item = document.querySelector(".place");
-    console.log(item);
+    console.log(item, bookbtn);
     console.log(startDate, endDate);
   }
 

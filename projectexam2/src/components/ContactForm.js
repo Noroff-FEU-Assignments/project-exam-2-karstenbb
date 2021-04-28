@@ -54,8 +54,10 @@ const ContactForm = () => {
   return (
     <div className="form__wrapper">
       <form className="contact__form" onSubmit={handleSubmit}>
-        <h1>Contact us</h1>
-        {success ? <div>Successfully sendt a message</div> : null}
+        <h1 className="contact__title">Contact us</h1>
+        {success ? (
+          <div className="contact__success">Successfully sendt a message</div>
+        ) : null}
         <label className="contact__label" htmlFor="name">
           Name:
         </label>
@@ -69,7 +71,9 @@ const ContactForm = () => {
           value={values.name}
           onChange={handleChange}
         />
-        {touched.name && errors.name ? <div>{errors.name}</div> : null}
+        {touched.name && errors.name ? (
+          <div className="contact__error">{errors.name}</div>
+        ) : null}
         <label className="contact__label" htmlFor="email">
           Email:
         </label>
@@ -83,13 +87,15 @@ const ContactForm = () => {
           value={values.email}
           onChange={handleChange}
         />
-        {touched.email && errors.email ? <div>{errors.email}</div> : null}
+        {touched.email && errors.email ? (
+          <div className="contact__error">{errors.email}</div>
+        ) : null}
         <label className="contact__label" htmlFor="name">
           Message:
         </label>
         <textarea
           placeholder="Write your message here"
-          className="contact__input"
+          className="contact__input textarea__input"
           type="text"
           name="message"
           id="message"
@@ -97,7 +103,9 @@ const ContactForm = () => {
           value={values.message}
           onChange={handleChange}
         />
-        {touched.message && errors.message ? <div>{errors.message}</div> : null}
+        {touched.message && errors.message ? (
+          <div className="contact__error">{errors.message}</div>
+        ) : null}
         <button className="contact__btn" type="submit">
           {submitting ? "Sending ..." : "Send"}
         </button>

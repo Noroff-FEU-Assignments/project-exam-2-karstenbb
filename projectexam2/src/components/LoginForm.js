@@ -27,10 +27,10 @@ const LoginForm = () => {
     validationSchema: Yup.object({
       identifier: Yup.string()
         .max(40, "Login must be shorter than 20 characters")
-        .required("Required"),
+        .required("Please write in your username"),
       password: Yup.string()
         .min(6, "Password should be longer than 6 characters")
-        .required(),
+        .required("Please write in your password"),
     }),
     onSubmit: async (values) => {
       setSubmitting(true);
@@ -42,7 +42,7 @@ const LoginForm = () => {
         console.log(response.data);
         setAuth(response.data);
         if (response.status === 200) {
-          history.push("/admin");
+          history.push("/addplace");
         }
       } catch (err) {
         console.log("Error", err);
@@ -53,9 +53,13 @@ const LoginForm = () => {
     },
   });
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="login">Login</label>
+    <form className="login__form" onSubmit={handleSubmit}>
+      <label className="login__label" htmlFor="login">
+        Username
+      </label>
       <input
+        placeholder="Username"
+        className="login__input"
         onBlur={handleBlur}
         value={values.identifier}
         onChange={handleChange}
@@ -64,10 +68,14 @@ const LoginForm = () => {
         type="text"
       />
       {touched.identifier && errors.identifier ? (
-        <div>{errors.identifier}</div>
+        <div className="login__error">{errors.identifier}</div>
       ) : null}
-      <label htmlFor="password">Password</label>
+      <label className="login__label" htmlFor="password">
+        Password
+      </label>
       <input
+        placeholder="Password"
+        className="login__input"
         onBlur={handleBlur}
         value={values.password}
         onChange={handleChange}
@@ -76,9 +84,11 @@ const LoginForm = () => {
         type="password"
       />
       {touched.password && errors.password ? (
-        <div>{errors.password}</div>
+        <div className="login__error">{errors.password}</div>
       ) : null}
-      <button type="submit">{submitting ? "Logging in ..." : "Login"}</button>
+      <button className="login__btn" type="submit">
+        {submitting ? "Logging in ..." : "Login"}
+      </button>
     </form>
   );
 };

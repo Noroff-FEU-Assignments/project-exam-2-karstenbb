@@ -1,0 +1,20 @@
+.login__error {
+  color: red;
+  padding: 1rem 0;
+}
+.login__form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.login__input {
+  padding: 0.2rem;
+}
+.login__btn {
+  margin-top: 1rem;
+  background-color: #295885;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
