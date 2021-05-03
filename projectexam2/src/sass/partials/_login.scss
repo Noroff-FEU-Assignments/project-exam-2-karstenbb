@@ -6,9 +6,21 @@
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  margin: 1rem;
+  background-color: white;
+  justify-content: center;
+}
+.login__formwrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  position: absolute;
+  width: 100%;
 }
 .login__input {
   padding: 0.2rem;
+  margin: 1rem 0;
 }
 .login__btn {
   margin-top: 1rem;
@@ -17,4 +29,8 @@
   border: none;
   padding: 0.5rem;
   border-radius: 5px;
+}
+.login__background {
+  width: 100%;
+  height: 100vh;
 }

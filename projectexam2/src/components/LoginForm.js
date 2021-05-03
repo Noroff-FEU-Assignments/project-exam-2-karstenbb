@@ -38,6 +38,7 @@ const LoginForm = () => {
       console.log(values);
 
       try {
+        console.log("fuck you u little twat");
         const response = await axios.post(`${api_url}${AUTH_PATH}`, values);
         console.log(response.data);
         setAuth(response.data);
@@ -53,43 +54,45 @@ const LoginForm = () => {
     },
   });
   return (
-    <form className="login__form" onSubmit={handleSubmit}>
-      <label className="login__label" htmlFor="login">
-        Username
-      </label>
-      <input
-        placeholder="Username"
-        className="login__input"
-        onBlur={handleBlur}
-        value={values.identifier}
-        onChange={handleChange}
-        id="login"
-        name="identifier"
-        type="text"
-      />
-      {touched.identifier && errors.identifier ? (
-        <div className="login__error">{errors.identifier}</div>
-      ) : null}
-      <label className="login__label" htmlFor="password">
-        Password
-      </label>
-      <input
-        placeholder="Password"
-        className="login__input"
-        onBlur={handleBlur}
-        value={values.password}
-        onChange={handleChange}
-        id="password"
-        name="password"
-        type="password"
-      />
-      {touched.password && errors.password ? (
-        <div className="login__error">{errors.password}</div>
-      ) : null}
-      <button className="login__btn" type="submit">
-        {submitting ? "Logging in ..." : "Login"}
-      </button>
-    </form>
+    <div className="login__formwrapper">
+      <form className="login__form" onSubmit={handleSubmit}>
+        <label className="login__label" htmlFor="login">
+          Username
+        </label>
+        <input
+          placeholder="Username"
+          className="login__input"
+          onBlur={handleBlur}
+          value={values.identifier}
+          onChange={handleChange}
+          id="login"
+          name="identifier"
+          type="text"
+        />
+        {touched.identifier && errors.identifier ? (
+          <div className="login__error">{errors.identifier}</div>
+        ) : null}
+        <label className="login__label" htmlFor="password">
+          Password
+        </label>
+        <input
+          placeholder="Password"
+          className="login__input"
+          onBlur={handleBlur}
+          value={values.password}
+          onChange={handleChange}
+          id="password"
+          name="password"
+          type="password"
+        />
+        {touched.password && errors.password ? (
+          <div className="login__error">{errors.password}</div>
+        ) : null}
+        <button className="login__btn" type="submit">
+          {submitting ? "Logging in ..." : "Login"}
+        </button>
+      </form>
+    </div>
   );
 };
 

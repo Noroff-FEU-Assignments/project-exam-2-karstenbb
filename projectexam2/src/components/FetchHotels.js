@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { api_url } from "../utils//Constants";
 import { Link } from "react-router-dom";
-import { faLaptopHouse } from "@fortawesome/free-solid-svg-icons";
 
 const FetchHotels = () => {
   const [error, setError] = useState(null);

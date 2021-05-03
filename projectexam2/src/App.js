@@ -10,6 +10,7 @@ import AddPlace from "./pages/AddPlace";
 import { AuthProvider } from "./context/AuthContext";
 import ContactList from "./pages/ContactList";
 import BookList from "./pages/BookList";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/booklist" component={BookList}></Route>
         </Switch>
       </Router>
+      <Footer></Footer>
     </AuthProvider>
   );
 }

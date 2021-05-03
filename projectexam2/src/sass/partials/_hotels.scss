@@ -92,6 +92,18 @@ body {
   width: 100%;
   text-align: right;
 }
+
+.container__modal {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  background-color: white;
+  border: 2px solid #295885;
+  padding: 1rem;
+  max-width: 80%;
+}
+
 @media only screen and (min-width: 650px) {
   .place__img {
     width: 50%;
