@@ -1,0 +1,20 @@
+.booklist__container {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 1rem;
+}
+.booklist__img {
+  max-width: 100%;
+}
+
+.booklist__title {
+  text-align: center;
+  margin-top: 1rem;
+}
+.booklist__item {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 2px solid #295885;
+}

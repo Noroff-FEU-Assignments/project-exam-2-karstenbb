@@ -41,7 +41,7 @@ const Detail = () => {
   }
 
   return (
-    <>
+    <div className="details__body">
       <h1 className="hotel__title">{hotels.title}</h1>
       <div className="detail__container">
         <img
@@ -52,7 +52,7 @@ const Detail = () => {
         <p className="detail__price">{hotels.price} NOK</p>
         <p className="detail__description">{hotels.description}</p>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { api_url } from "../utils/Constants";
 import { useFormik } from "formik";
-import * as Yup from "yup";
+import * as yup from "yup";
+
+import ClipLoader from "react-spinners/ClipLoader";
 
 const BookNow = () => {
   const [error, setError] = useState(null);
@@ -11,42 +13,38 @@ const BookNow = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalItem, setModalItem] = useState({});
   const [submitting, setSubmitting] = useState(false);
-  const [Startdate, setStartDate] = useState();
-  const [Enddate, setEndDate] = useState();
+  const [startdate, setStartDate] = useState(new Date());
+  const [enddate, setEndDate] = useState(new Date());
+  const [color, setColor] = useState("black");
+  const [success, setSuccess] = useState(null);
 
-  const {
-    setFieldValue,
-    handleSubmit,
-    handleChange,
-    register,
-    values,
-    errors,
-  } = useFormik({
+  const { handleSubmit, handleChange, register, values, errors } = useFormik({
     initialValues: {
       title: "",
-      startdate: Startdate,
-      enddate: Enddate,
+      startdate: startdate,
+      enddate: enddate,
       picture: "",
       price: "",
     },
-    bookingSchema: Yup.object().shape({
-      title: Yup.string().required(),
-      price: Yup.number().required(),
-      picture: Yup.string().required(),
-      startdate: Yup.date().required("required"),
-      enddate: Yup.date().required("required"),
+    bookingSchema: yup.object().shape({
+      title: yup.string().required(),
+      price: yup.number().required(),
+      picture: yup.string().required(),
+      startdate: yup.date().required("required"),
+      enddate: yup.date().required("required"),
     }),
-    onSubmit: async (bookingSchema, values) => {
+    onSubmit: async (values) => {
+      let data = {
+        ...modalItem,
+        enddate: values.enddate,
+        startdate: values.startdate,
+      };
+      console.log(data);
       setSubmitting(true);
-      console.log(values);
+      console.log(modalItem);
       try {
-        const response = await axios.post(
-          `${api_url}/bookings`,
-          modalItem,
-          values
-        );
-        console.log(response.data);
-
+        const response = await axios.post(`${api_url}/bookings`, data);
+        setSuccess(true);
         setModalItem(response.data);
       } catch (error) {
         console.log("error", error.toString());
@@ -59,6 +57,7 @@ const BookNow = () => {
   function onBookNow(item, e) {
     setShowModal(!showModal);
     setModalItem(item);
+    console.log(modalItem);
   }
   useEffect(() => {
     const fetchPlaces = async () => {
@@ -79,7 +78,11 @@ const BookNow = () => {
     fetchPlaces();
   }, []);
   if (loading) {
-    return <div>Loading ....</div>;
+    return (
+      <div className="sweet-loading">
+        <ClipLoader color={color} loading={loading} size={150} />
+      </div>
+    );
   }
   if (error) {
     <div>ERROR: An error happened</div>;
@@ -111,52 +114,90 @@ const BookNow = () => {
         {showModal && (
           <>
             <form onSubmit={handleSubmit} className="container__modal">
-              <fieldset disabled={submitting}>
+              <div className="modal__header">
+                <h1>Checkout</h1>
+                <button
+                  className="modal__close"
+                  onClick={() => setShowModal(!showModal)}
+                >
+                  X
+                </button>
+              </div>
+              <fieldset className="modal__field" disabled={submitting}>
                 <input
                   onChange={handleChange}
                   name="picture"
                   id="picture"
-                  value={modalItem.picture}
+                  value={values.picture}
                   required
+                  type="hidden"
+                  ref={register}
                 />
-
-                <input
-                  value={modalItem.title}
-                  onChange={handleChange}
-                  type="text"
-                  name="title"
-                  id="title"
-                  required
-                />
-                <input
-                  value={modalItem.price}
-                  onChange={handleChange}
-                  type="number"
-                  name="price"
-                  id="price"
-                  required
-                />
-                <input
-                  onInput={(e) => setStartDate(e.target.value)}
-                  value={values.Startdate}
-                  onChange={handleChange}
-                  placeholder="mm-dd-yyyy"
-                  id="startdate"
-                  type="date"
-                  name="startdate"
-                  required
-                />
-                <input
-                  onInput={(e) => setEndDate(e.target.value)}
-                  value={values.Enddate}
-                  onChange={handleChange}
-                  placeholder="mm-dd-yyyy"
-                  id="enddate"
-                  type="date"
-                  name="enddate"
-                  required
-                />
-                <button type="submit">Book</button>
+                <div className="modal__input">
+                  <label className="modal__label" for="title">
+                    Title:
+                  </label>
+                  <input
+                    className="modal__input--item"
+                    value={modalItem.title}
+                    onChange={handleChange}
+                    type="text"
+                    name="title"
+                    id="title"
+                    required
+                    ref={register}
+                  />
+                </div>
+                <div className="modal__input">
+                  <label className="modal__label" for="price">
+                    Price in NOK:
+                  </label>
+                  <input
+                    className="modal__input--item"
+                    value={modalItem.price}
+                    onChange={handleChange}
+                    type="number"
+                    name="price"
+                    id="price"
+                    required
+                  />
+                </div>
+                <div className="modal__input">
+                  <label className="modal__label" for="startdate">
+                    Arrival date:
+                  </label>
+                  <input
+                    className="modal__input--item"
+                    onInput={(e) => setStartDate(e.target.value)}
+                    value={values.startdate}
+                    onChange={handleChange}
+                    id="startdate"
+                    type="date"
+                    name="startdate"
+                    required
+                  />
+                </div>
+                <div className="modal__input">
+                  <label className="modal__label" for="enddate">
+                    Checkout date:
+                  </label>
+                  <input
+                    className="modal__input--item"
+                    onInput={(e) => setEndDate(e.target.value)}
+                    value={values.enddate}
+                    onChange={handleChange}
+                    id="enddate"
+                    type="date"
+                    name="enddate"
+                    required
+                  />
+                </div>
+                <div className="modal__success">
+                  {success ? "Successfully booked place" : ""}
+                </div>
+                <button className="modal__book-btn" type="submit">
+                  {submitting ? "Booking ...." : "Book"}
+                </button>
               </fieldset>
             </form>
           </>

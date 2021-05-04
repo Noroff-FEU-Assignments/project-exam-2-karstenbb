@@ -1,0 +1,46 @@
+.container__modal {
+  width: 400px;
+  border: 2px solid #295885;
+  min-width: 100px;
+  border-radius: 5px;
+}
+.modal__input {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+}
+.modal__field {
+  border: none;
+}
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+}
+.modal__close {
+  background-color: #295885;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+}
+.modal__success {
+  padding: 1rem 0;
+  color: green;
+  font-weight: bold;
+}
+.modal__input--item {
+  padding: 0.2rem;
+  border: 1px solid #295885;
+  border-radius: 5px;
+}
+.modal__label {
+  padding: 0.5rem 0;
+}
+.modal__book-btn {
+  background-color: #295885;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: 100%;
+}

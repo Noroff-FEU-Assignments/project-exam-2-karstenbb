@@ -1,0 +1,23 @@
+footer {
+  padding: 0;
+  margin: 0;
+}
+.footer {
+  display: flex;
+  max-width: 100%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: black;
+  color: white;
+  padding: 1rem;
+  font-size: 17px;
+}
+
+.footer__left {
+  flex: 50%;
+}
+.footer__right {
+  flex: 50%;
+  text-align: right;
+}

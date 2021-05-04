@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { api_url } from "../utils//Constants";
 import { Link } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const FetchHotels = () => {
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [places, setPlaces] = useState([]);
   const [filteredHotels, setFilteredHotels] = useState([]);
   const [filtered, setFiltered] = useState(false);
   const [toggles, setToggles] = useState("closed");
+  const [color, setColor] = useState("black");
 
   useEffect(() => {
     fetch(api_url + "/hotels")
@@ -16,7 +18,7 @@ const FetchHotels = () => {
       .then(
         (result) => {
           console.log(result);
-          setLoading(true);
+          setLoading(false);
           setPlaces(result);
         },
         (error) => {
@@ -104,10 +106,16 @@ const FetchHotels = () => {
       </>
     );
   }
+
+  if (loading === true) {
+    return (
+      <div className="sweet-loading">
+        <ClipLoader color={color} loading={loading} size={150} />
+      </div>
+    );
+  }
   if (error) {
     return <div>Error: {error.message}</div>;
-  } else if (!loading) {
-    return <div>Loading...</div>;
   } else {
     return (
       <>

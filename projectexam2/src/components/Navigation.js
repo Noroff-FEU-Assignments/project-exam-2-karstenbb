@@ -76,6 +76,7 @@ const Navigation = () => {
               </NavLink>
               {auth ? (
                 <>
+                  <span className="nav__line2">|</span>
                   <div className="nav__line"></div>
                   <NavLink
                     activeStyle={{ borderBottom: "2px solid black" }}

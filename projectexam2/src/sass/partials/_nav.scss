@@ -5,10 +5,13 @@
   height: 80px;
   font-family: roboto, sans-serif;
   display: flex;
-  font-size: 25px;
+  font-size: 20px;
+}
+.nav__line2 {
+  display: none;
 }
 .navbar .left {
-  flex: 50%;
+  flex: 20%;
 }
 .login-btn {
   padding: 0.4rem;
@@ -29,7 +32,8 @@
 }
 
 .navbar .right {
-  flex: 50%;
+  flex: 70%;
+  padding-top: 0.3rem;
 }
 .navbar .right #hidden {
   display: flex;
@@ -41,6 +45,7 @@
   justify-content: right;
   height: auto;
   width: 100%;
+  padding-top: 0.3rem;
 }
 .menu--toggle {
   display: none;
@@ -73,16 +78,24 @@
 }
 @media only screen and (max-width: 750px) {
   .navbar .right .nav__link {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
-
+@media only screen and (min-width: 651px) {
+  .nav__line2 {
+    display: block;
+  }
+  .login-btn {
+    padding: 0.2rem;
+  }
+}
 @media only screen and (max-width: 650px) {
   .menu--toggle {
     display: flex;
     color: white;
     margin-left: auto;
   }
+
   .nav__menu {
     display: none;
   }
@@ -125,11 +138,24 @@
   }
 }
 
-.container__calendar {
-  display: flex;
-  justify-content: center;
+//desktop styling
+@media only screen and (min-width: 651px) {
+  .navbar {
+    height: 100px;
+  }
 }
-.react-datepicker {
-  margin: 0 auto;
-  justify-content: center;
+
+@media only screen and (min-width: 820px) {
+  .navbar {
+    height: 100px;
+  }
+  .nav__menu {
+    padding: 1rem;
+  }
+  .nav__line2 {
+    display: block;
+  }
+  .login-btn {
+    font-size: 20px;
+  }
 }
