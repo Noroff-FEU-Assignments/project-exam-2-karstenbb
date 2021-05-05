@@ -26,6 +26,7 @@ const Navigation = () => {
           <div className="nav__menu" id={showMenu ? "" : "hidden"}>
             <ul className="nav__list">
               <NavLink
+                onClick={() => setShowMenu(!showMenu)}
                 activeStyle={{ borderBottom: "2px solid black" }}
                 className="nav__link"
                 exact
@@ -39,6 +40,7 @@ const Navigation = () => {
                 </li>
               </NavLink>
               <NavLink
+                onClick={() => setShowMenu(!showMenu)}
                 activeStyle={{ borderBottom: "2px solid black" }}
                 className="nav__link"
                 to="/hotels"
@@ -51,6 +53,7 @@ const Navigation = () => {
                 </li>
               </NavLink>
               <NavLink
+                onClick={() => setShowMenu(!showMenu)}
                 activeStyle={{ borderBottom: "2px solid black" }}
                 className="nav__link"
                 to="/book"
@@ -63,6 +66,7 @@ const Navigation = () => {
                 </li>
               </NavLink>
               <NavLink
+                onClick={() => setShowMenu(!showMenu)}
                 activeStyle={{ borderBottom: "2px solid black" }}
                 className="nav__link"
                 to="/contactus"
@@ -79,6 +83,7 @@ const Navigation = () => {
                   <span className="nav__line2">|</span>
                   <div className="nav__line"></div>
                   <NavLink
+                    onClick={() => setShowMenu(!showMenu)}
                     activeStyle={{ borderBottom: "2px solid black" }}
                     className="nav__link"
                     to="/booklist"
@@ -91,6 +96,7 @@ const Navigation = () => {
                     </li>
                   </NavLink>
                   <NavLink
+                    onClick={() => setShowMenu(!showMenu)}
                     activeStyle={{ borderBottom: "2px solid black" }}
                     className="nav__link"
                     to="/contactlist"
@@ -103,6 +109,7 @@ const Navigation = () => {
                     </li>
                   </NavLink>
                   <NavLink
+                    onClick={() => setShowMenu(!showMenu)}
                     activeStyle={{ borderBottom: "2px solid black" }}
                     className="nav__link"
                     to="/addplace"
