@@ -32,7 +32,9 @@ const ContactList = () => {
     }
     fetchData();
   }, []);
-
+  if (error) {
+    return <div>An error occured</div>;
+  }
   return (
     <div className="contactlist__body">
       <h1 className="contactlist__title">Messages</h1>

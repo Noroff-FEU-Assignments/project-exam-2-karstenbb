@@ -1,6 +1,6 @@
 import FacebookIcon from "@material-ui/icons/Facebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
-import { useState } from "react";
+
 const Footer = () => {
   return (
     <footer>

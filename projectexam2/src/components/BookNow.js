@@ -18,7 +18,7 @@ const BookNow = () => {
   const [color, setColor] = useState("black");
   const [success, setSuccess] = useState(null);
 
-  const { handleSubmit, handleChange, register, values, errors } = useFormik({
+  const { handleSubmit, handleChange, register, values } = useFormik({
     initialValues: {
       title: "",
       startdate: startdate,
@@ -39,9 +39,9 @@ const BookNow = () => {
         enddate: values.enddate,
         startdate: values.startdate,
       };
-      console.log(data);
+
       setSubmitting(true);
-      console.log(modalItem);
+
       try {
         const response = await axios.post(`${api_url}/bookings`, data);
         setSuccess(true);
@@ -57,7 +57,6 @@ const BookNow = () => {
   function onBookNow(item, e) {
     setShowModal(!showModal);
     setModalItem(item);
-    console.log(modalItem);
   }
   useEffect(() => {
     const fetchPlaces = async () => {
@@ -134,7 +133,7 @@ const BookNow = () => {
                   ref={register}
                 />
                 <div className="modal__input">
-                  <label className="modal__label" for="title">
+                  <label className="modal__label" htmlFor="title">
                     Title:
                   </label>
                   <input
@@ -149,7 +148,7 @@ const BookNow = () => {
                   />
                 </div>
                 <div className="modal__input">
-                  <label className="modal__label" for="price">
+                  <label className="modal__label" htmlFor="price">
                     Price in NOK:
                   </label>
                   <input
@@ -163,7 +162,7 @@ const BookNow = () => {
                   />
                 </div>
                 <div className="modal__input">
-                  <label className="modal__label" for="startdate">
+                  <label className="modal__label" htmlFor="startdate">
                     Arrival date:
                   </label>
                   <input
@@ -178,7 +177,7 @@ const BookNow = () => {
                   />
                 </div>
                 <div className="modal__input">
-                  <label className="modal__label" for="enddate">
+                  <label className="modal__label" htmlFor="enddate">
                     Checkout date:
                   </label>
                   <input

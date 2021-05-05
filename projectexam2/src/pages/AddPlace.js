@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 const AddPlace = () => {
   const http = useAxios();
   const [submitting, setSubmitting] = useState(false);
-  const [postError, setPostError] = useState(null);
+  const [, setPostError] = useState(null);
   const [success, setSuccess] = useState(null);
   const [auth] = useContext(AuthContext);
   const history = useHistory();

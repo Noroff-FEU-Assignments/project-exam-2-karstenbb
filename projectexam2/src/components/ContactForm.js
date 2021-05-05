@@ -9,7 +9,7 @@ import contactBackground from "../images/contactme.jpeg";
 const ContactForm = () => {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(null);
-  const [postError, setPostError] = useState(null);
+  const [, setPostError] = useState(null);
   const {
     handleSubmit,
     handleChange,

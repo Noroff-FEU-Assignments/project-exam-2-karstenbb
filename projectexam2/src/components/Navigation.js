@@ -5,15 +5,22 @@ import { Link, NavLink } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 
 const Navigation = () => {
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
   const [auth, setAuth] = useContext(AuthContext);
 
   function logOut() {
     setAuth(null);
     setShowMenu(!showMenu);
   }
+
+  window.onresize = () => {
+    //if (window.width )
+    setShowMenu(false);
+  };
+
   return (
     <>
+      {console.log(showMenu)}
       <div className="navbar">
         <div className="left">
           <div className="nav__left">

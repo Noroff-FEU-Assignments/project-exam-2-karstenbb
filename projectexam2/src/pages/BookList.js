@@ -3,7 +3,7 @@ import { api_url } from "../utils//Constants";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const BookList = () => {
-  const [error, setError] = useState(null);
+  const [, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [places, setPlaces] = useState([]);
   const [color, setColor] = useState("black");
