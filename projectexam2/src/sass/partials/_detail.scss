@@ -5,9 +5,13 @@
   border: 2px solid #295885;
   margin: 1rem;
   border-radius: 5px;
+  width: 60%;
+  max-width: 100%;
+  margin: 0 auto;
+  margin-bottom: 1rem;
 }
 .details__body {
-  height: auto;
+  min-height: 80vh;
 }
 .detail__img {
   margin-bottom: 1rem;

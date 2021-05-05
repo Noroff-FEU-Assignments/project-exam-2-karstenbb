@@ -13,11 +13,6 @@ const Navigation = () => {
     setShowMenu(!showMenu);
   }
 
-  window.onresize = () => {
-    //if (window.width )
-    setShowMenu(false);
-  };
-
   return (
     <>
       {console.log(showMenu)}
