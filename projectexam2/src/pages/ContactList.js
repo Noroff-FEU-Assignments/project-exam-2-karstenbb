@@ -35,20 +35,30 @@ const ContactList = () => {
 
   return (
     <div className="contactlist__body">
-      <h1>Messages</h1>
+      <h1 className="contactlist__title">Messages</h1>
       {loading ? (
         <div className="sweet-loading">
           <ClipLoader color={color} loading={loading} size={150} />
         </div>
       ) : null}
       <div className="message__container">
-        {messages?.length === 0 ? <div>No messages found</div> : null}
+        {messages?.length === 0 ? (
+          <div className="contactlist__empty">No messages found</div>
+        ) : null}
         {messages?.map((message) => (
           <div className="message" key={message.id}>
             <div className="message__content">
-              <p>Name: {message.name} </p>
-              <p>Email: {message.email} </p>
-              <p>Message: {message.message} </p>
+              <p className="contactlist__item">
+                <span className="contactlist__span">Name:</span> {message.name}{" "}
+              </p>
+              <p className="contactlist__item">
+                <span className="contactlist__span">Email:</span>{" "}
+                {message.email}{" "}
+              </p>
+              <p className="contactlist__item">
+                <span className="contactlist__span">Message:</span>{" "}
+                {message.message}{" "}
+              </p>
             </div>
           </div>
         ))}

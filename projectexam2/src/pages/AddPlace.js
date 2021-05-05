@@ -59,7 +59,9 @@ const AddPlace = () => {
   return (
     <div className="addplace__wrapper">
       <form className="addplace__form" onSubmit={handleSubmit}>
-        {success ? <div>Succssfully added new place</div> : null}
+        {success ? (
+          <div className="addplace__success">Succssfully added new place</div>
+        ) : null}
         <label className="addplace__label" htmlFor="title">
           Title
         </label>

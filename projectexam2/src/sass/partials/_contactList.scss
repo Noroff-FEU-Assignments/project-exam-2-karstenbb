@@ -15,3 +15,17 @@
   max-width: 100%;
   flex-direction: row;
 }
+.contactlist__title {
+  text-align: center;
+  margin-top: 1rem;
+}
+.contactlist__empty {
+  padding: 1rem;
+  font-size: 25px;
+}
+.contactlist__item {
+  margin: 1rem 0;
+}
+.contactlist__span {
+  border-bottom: 1px solid blue;
+}

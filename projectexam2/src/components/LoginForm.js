@@ -38,16 +38,15 @@ const LoginForm = () => {
       console.log(values);
 
       try {
-        console.log("fuck you u little twat");
         const response = await axios.post(`${api_url}${AUTH_PATH}`, values);
         console.log(response.data);
         setAuth(response.data);
         if (response.status === 200) {
           history.push("/addplace");
         }
-      } catch (err) {
-        console.log("Error", err);
-        setLoginError(err.toString());
+      } catch (error) {
+        console.log("Error", error);
+        setLoginError(error.toString());
       } finally {
         setSubmitting(false);
       }
@@ -56,6 +55,10 @@ const LoginForm = () => {
   return (
     <div className="login__formwrapper">
       <form className="login__form" onSubmit={handleSubmit}>
+        <h1 className="login__title">Login</h1>
+        <div className="login__error">
+          {loginError ? "Please enter correct login details" : null}
+        </div>
         <label className="login__label" htmlFor="login">
           Username
         </label>

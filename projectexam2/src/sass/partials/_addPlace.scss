@@ -1,7 +1,7 @@
 .addplace__wrapper {
   display: flex;
   justify-content: center;
-  min-height: 80vh;
+  min-height: 85vh;
 }
 .addplace__form {
   display: flex;
@@ -28,8 +28,14 @@
   padding: 0.2rem;
   border-radius: 5px;
   border-color: white;
+  border: 2px solid #295885;
 }
 .addplace__error {
   color: red;
   padding: 1rem 0;
+}
+.addplace__success {
+  font-size: 25px;
+  color: green;
+  font-weight: bold;
 }

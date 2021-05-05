@@ -143,6 +143,9 @@
   .navbar {
     height: 100px;
   }
+  .navbar .right .nav__link {
+    margin: 0.2rem 1rem;
+  }
 }
 
 @media only screen and (min-width: 820px) {
@@ -157,5 +160,10 @@
   }
   .login-btn {
     font-size: 20px;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  .navbar .right .nav__link {
+    margin: 0.2rem 1rem;
   }
 }

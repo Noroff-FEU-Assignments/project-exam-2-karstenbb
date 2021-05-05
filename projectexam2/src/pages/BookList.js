@@ -30,28 +30,42 @@ const BookList = () => {
       </div>
     );
   }
+  if (places.length === 0) {
+    return (
+      <>
+        <h1 className="booklist__title">List of enquiries</h1>
+        <div className="booklist__container">
+          <div className="booklist__empty">
+            No one have booked anything yet :(
+          </div>
+        </div>
+      </>
+    );
+  }
   return (
     <>
       <h1 className="booklist__title">List of enquiries</h1>
-      <div className="booklist__container">
-        {places.map((place) => {
-          return (
-            <div className="booklist__item" key={place.id}>
-              <h1 className="booklist__item--title">{place.title}</h1>
-              <p className="booklist__item--startdate">
-                Arrival date: {place.startdate}
-              </p>
-              <p className="booklist__item--enddate">
-                Checkout date: {place.enddate}
-              </p>
-              <img
-                className="booklist__img"
-                src={place.picture}
-                alt={place.title}
-              />
-            </div>
-          );
-        })}
+      <div className="booklist__body">
+        <div className="booklist__container">
+          {places.map((place) => {
+            return (
+              <div className="booklist__item" key={place.id}>
+                <h1 className="booklist__item--title">{place.title}</h1>
+                <p className="booklist__item--startdate">
+                  Arrival date: {place.startdate}
+                </p>
+                <p className="booklist__item--enddate">
+                  Checkout date: {place.enddate}
+                </p>
+                <img
+                  className="booklist__img"
+                  src={place.picture}
+                  alt={place.title}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </>
   );
