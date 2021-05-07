@@ -32,14 +32,14 @@ const BookList = () => {
   }
   if (places.length === 0) {
     return (
-      <>
+      <div className="booklist__body">
         <h1 className="booklist__title">List of enquiries</h1>
         <div className="booklist__container">
           <div className="booklist__empty">
             No one have booked anything yet :(
           </div>
         </div>
-      </>
+      </div>
     );
   }
   return (

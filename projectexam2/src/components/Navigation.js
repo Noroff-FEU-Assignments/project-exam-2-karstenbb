@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 
 const Navigation = () => {
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(true);
   const [auth, setAuth] = useContext(AuthContext);
 
   function logOut() {
