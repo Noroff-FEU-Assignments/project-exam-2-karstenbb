@@ -130,3 +130,16 @@ body {
     min-height: 80vh;
   }
 }
+@media only screen and (min-width: 1000px) {
+  .container {
+    height: auto;
+    display: grid;
+    margin-bottom: 1rem;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .place {
+    width: 65%;
+    margin: 0 auto;
+  }
+}

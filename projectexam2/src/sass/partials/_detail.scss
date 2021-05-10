@@ -5,7 +5,7 @@
   border: 2px solid #295885;
   margin: 1rem;
   border-radius: 5px;
-  width: 60%;
+  width: 70%;
   max-width: 100%;
   margin: 0 auto;
   margin-bottom: 1rem;
@@ -39,4 +39,13 @@
 }
 .closed {
   display: none;
+}
+@media only screen and (min-width: 1000px) {
+  .detail__container {
+    width: 43%;
+    margin-bottom: 1rem;
+  }
+  .details__body {
+    min-height: 85vh;
+  }
 }
