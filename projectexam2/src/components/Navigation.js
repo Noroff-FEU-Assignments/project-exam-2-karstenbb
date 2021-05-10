@@ -12,7 +12,11 @@ const Navigation = () => {
     setAuth(null);
     setShowMenu(!showMenu);
   }
-
+  window.onresize = () => {
+    if (window.innerWidth >= 610) {
+      setShowMenu(true);
+    }
+  };
   return (
     <>
       {console.log(showMenu)}
