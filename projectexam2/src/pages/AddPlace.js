@@ -81,9 +81,9 @@ const AddPlace = () => {
         <label className="addplace__label" htmlFor="description">
           Description
         </label>
-        <input
+        <textarea
           placeholder="Description"
-          className="addplace__input"
+          className="addplace__input--textarea"
           onBlur={handleBlur}
           value={values.description}
           onChange={handleChange}

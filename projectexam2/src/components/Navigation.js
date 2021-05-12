@@ -58,19 +58,7 @@ const Navigation = () => {
                   Hotels
                 </li>
               </NavLink>
-              <NavLink
-                onClick={() => setShowMenu(!showMenu)}
-                activeStyle={{ borderBottom: "2px solid black" }}
-                className="nav__link"
-                to="/book"
-              >
-                <li
-                  onClick={() => setShowMenu(!showMenu)}
-                  className="nav__item"
-                >
-                  Book now
-                </li>
-              </NavLink>
+
               <NavLink
                 onClick={() => setShowMenu(!showMenu)}
                 activeStyle={{ borderBottom: "2px solid black" }}

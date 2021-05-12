@@ -14,7 +14,7 @@
 }
 
 .addplace__label {
-  margin: 0.5rem 0;
+  margin: 2rem 0;
 }
 .addplace__btn {
   margin-top: 1rem;
@@ -23,9 +23,17 @@
   border: none;
   padding: 0.5rem;
   border-radius: 5px;
+  font-size: 20px;
+}
+.addplace__input--textarea {
+  height: 60px;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border-color: white;
+  border: 2px solid #295885;
 }
 .addplace__input {
-  padding: 0.2rem;
+  padding: 0.5rem;
   border-radius: 5px;
   border-color: white;
   border: 2px solid #295885;
@@ -38,4 +46,9 @@
   font-size: 25px;
   color: green;
   font-weight: bold;
+}
+input[type="checkbox"] {
+  width: 30px;
+  height: 30px;
+  background: white;
 }
