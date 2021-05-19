@@ -59,10 +59,9 @@ body {
 .form-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   margin: 1rem;
-  width: 90%;
+  width: 100%;
 }
 .search {
   padding: 0.2rem;
@@ -87,10 +86,15 @@ body {
   border: none;
   color: white;
 }
-
+.place__btn-primary {
+  background-color: #4eda8f;
+  color: black;
+}
 .place__details {
   width: 100%;
   text-align: right;
+  display: flex;
+  justify-content: space-between;
 }
 
 .container__modal {
@@ -118,6 +122,14 @@ body {
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: repeat(3, 1fr);
+  }
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 1rem;
+    width: 100%;
+    padding: 1rem;
   }
   .place__img {
     height: 200px;

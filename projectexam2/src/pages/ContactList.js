@@ -12,7 +12,7 @@ const ContactList = () => {
   const http = useAxios();
   const history = useHistory();
   const [auth] = useContext(AuthContext);
-  const [color, setColor] = useState("black");
+  const [color] = useState("black");
   if (!auth) {
     history.push("/login");
   }

@@ -22,6 +22,18 @@
   flex: 0 1 250px;
   margin: 1rem;
 }
+.booklist__item--startdate {
+  margin: 1rem 0;
+  border-bottom: 2px solid red;
+  max-width: 90%;
+  font-size: 18px;
+}
+.booklist__item--enddate {
+  margin: 1rem 0;
+  border-bottom: 2px solid blue;
+  max-width: 90%;
+  font-size: 18px;
+}
 
 // Desktop styling
 @media only screen and (min-width: 800px) {

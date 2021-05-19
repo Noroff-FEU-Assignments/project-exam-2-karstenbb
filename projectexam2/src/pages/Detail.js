@@ -16,7 +16,7 @@ const Detail = () => {
   const [startdate, setStartDate] = useState(new Date());
   const [enddate, setEndDate] = useState(new Date());
   const [success, setSuccess] = useState(null);
-  const [color, setColor] = useState("black");
+  const [color] = useState("black");
 
   const { handleSubmit, handleChange, register, values } = useFormik({
     initialValues: {

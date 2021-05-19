@@ -27,6 +27,7 @@
   padding: 1rem 0;
   color: green;
   font-weight: bold;
+  text-align: left;
 }
 .modal__input--item {
   padding: 0.2rem;
@@ -35,6 +36,7 @@
 }
 .modal__label {
   padding: 0.5rem 0;
+  text-align: left;
 }
 .modal__book-btn {
   background-color: #295885;
@@ -43,4 +45,5 @@
   padding: 0.5rem;
   border-radius: 5px;
   width: 100%;
+  font-size: 20px;
 }

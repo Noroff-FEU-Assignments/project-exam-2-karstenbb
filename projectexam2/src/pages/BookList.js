@@ -6,7 +6,7 @@ const BookList = () => {
   const [, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [places, setPlaces] = useState([]);
-  const [color, setColor] = useState("black");
+  const [color] = useState("black");
 
   useEffect(() => {
     fetch(api_url + "/bookings")
@@ -42,6 +42,7 @@ const BookList = () => {
       </div>
     );
   }
+
   return (
     <>
       <h1 className="booklist__title">List of enquiries</h1>
