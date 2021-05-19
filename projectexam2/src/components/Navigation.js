@@ -5,21 +5,21 @@ import { Link, NavLink } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 
 const Navigation = () => {
-  const [showMenu, setShowMenu] = useState(true);
+  const [hideMenu, sethideMenu] = useState(false);
   const [auth, setAuth] = useContext(AuthContext);
 
   function logOut() {
     setAuth(null);
-    setShowMenu(!showMenu);
+    sethideMenu(!hideMenu);
   }
   window.onresize = () => {
     if (window.innerWidth >= 610) {
-      setShowMenu(true);
+      sethideMenu(false);
     }
   };
   return (
     <>
-      {console.log(showMenu)}
+      {console.log(hideMenu)}
       <div className="navbar">
         <div className="left">
           <div className="nav__left">
@@ -29,30 +29,30 @@ const Navigation = () => {
           </div>
         </div>
         <div className="right">
-          <div className="nav__menu" id={showMenu ? "" : "hidden"}>
+          <div className="nav__menu" id={hideMenu ? "hidden" : ""}>
             <ul className="nav__list">
               <NavLink
-                onClick={() => setShowMenu(!showMenu)}
+                onClick={() => sethideMenu(!hideMenu)}
                 activeStyle={{ borderBottom: "2px solid black" }}
                 className="nav__link"
                 exact
                 to="/"
               >
                 <li
-                  onClick={() => setShowMenu(!showMenu)}
+                  onClick={() => sethideMenu(!hideMenu)}
                   className="nav__item"
                 >
                   Home
                 </li>
               </NavLink>
               <NavLink
-                onClick={() => setShowMenu(!showMenu)}
+                onClick={() => sethideMenu(!hideMenu)}
                 activeStyle={{ borderBottom: "2px solid black" }}
                 className="nav__link"
                 to="/hotels"
               >
                 <li
-                  onClick={() => setShowMenu(!showMenu)}
+                  onClick={() => sethideMenu(!hideMenu)}
                   className="nav__item"
                 >
                   Hotels
@@ -60,13 +60,13 @@ const Navigation = () => {
               </NavLink>
 
               <NavLink
-                onClick={() => setShowMenu(!showMenu)}
+                onClick={() => sethideMenu(!hideMenu)}
                 activeStyle={{ borderBottom: "2px solid black" }}
                 className="nav__link"
                 to="/contactus"
               >
                 <li
-                  onClick={() => setShowMenu(!showMenu)}
+                  onClick={() => sethideMenu(!hideMenu)}
                   className="nav__item"
                 >
                   Contact
@@ -77,39 +77,39 @@ const Navigation = () => {
                   <span className="nav__line2">|</span>
                   <div className="nav__line"></div>
                   <NavLink
-                    onClick={() => setShowMenu(!showMenu)}
+                    onClick={() => sethideMenu(!hideMenu)}
                     activeStyle={{ borderBottom: "2px solid black" }}
                     className="nav__link"
                     to="/booklist"
                   >
                     <li
-                      onClick={() => setShowMenu(!showMenu)}
+                      onClick={() => sethideMenu(!hideMenu)}
                       className="nav__item"
                     >
                       List
                     </li>
                   </NavLink>
                   <NavLink
-                    onClick={() => setShowMenu(!showMenu)}
+                    onClick={() => sethideMenu(!hideMenu)}
                     activeStyle={{ borderBottom: "2px solid black" }}
                     className="nav__link"
                     to="/contactlist"
                   >
                     <li
-                      onClick={() => setShowMenu(!showMenu)}
+                      onClick={() => sethideMenu(!hideMenu)}
                       className="nav__item"
                     >
                       Messages
                     </li>
                   </NavLink>
                   <NavLink
-                    onClick={() => setShowMenu(!showMenu)}
+                    onClick={() => sethideMenu(!hideMenu)}
                     activeStyle={{ borderBottom: "2px solid black" }}
                     className="nav__link"
                     to="/addplace"
                   >
                     <li
-                      onClick={() => setShowMenu(!showMenu)}
+                      onClick={() => sethideMenu(!hideMenu)}
                       className="nav__item"
                     >
                       New establishment
@@ -122,7 +122,7 @@ const Navigation = () => {
               ) : (
                 <Link className="nav__link" to="/login">
                   <button
-                    onClick={() => setShowMenu(!showMenu)}
+                    onClick={() => sethideMenu(!hideMenu)}
                     className="login-btn"
                   >
                     Login
@@ -131,11 +131,13 @@ const Navigation = () => {
               )}
             </ul>
           </div>
-          <FontAwesomeIcon
-            icon={faBars}
-            onClick={() => setShowMenu(!showMenu)}
-            className="menu--toggle"
-          ></FontAwesomeIcon>
+          <div>
+            <FontAwesomeIcon
+              icon={faBars}
+              onClick={() => sethideMenu(!hideMenu)}
+              className="menu--toggle"
+            ></FontAwesomeIcon>
+          </div>
         </div>
       </div>
     </>

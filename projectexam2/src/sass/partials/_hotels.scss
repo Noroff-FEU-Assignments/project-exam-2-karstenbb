@@ -29,10 +29,10 @@ body {
 }
 .open {
   background-color: white;
-  padding: 0 1rem;
-  padding-bottom: 1rem;
-  margin: 0 1rem;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 10px 10px;
+  display: block;
+  width: 90%;
+  margin: 0 auto;
 }
 .place__info {
   display: flex;
@@ -61,17 +61,23 @@ body {
   flex-direction: column;
   align-items: center;
   margin: 1rem;
+}
+
+.search-container {
   width: 100%;
+  padding: 0 40px;
 }
 .search {
-  padding: 0.2rem;
-  margin: 0 1rem;
+  display: block;
+  padding: 0.4rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   border: 1px solid black;
   background-color: white;
   border-radius: 5px;
+  width: 88%;
+  margin: 0 auto;
 }
 .hotel__title {
   text-align: center;
@@ -128,8 +134,12 @@ body {
     flex-direction: column;
     align-items: flex-start;
     margin: 1rem;
-    width: 100%;
     padding: 1rem;
+  }
+  .search,
+  .open {
+    width: 75%;
+    margin: 0 auto;
   }
   .place__img {
     height: 200px;

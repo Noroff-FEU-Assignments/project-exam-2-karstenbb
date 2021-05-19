@@ -98,12 +98,12 @@ const FetchHotels = () => {
     return (
       <>
         <div className="form-container">
-          <form className="form">
+          <form className="form search-container">
             <input
               onChange={handleSearch}
               className="search"
               type="text"
-              placeholder="Search for places"
+              placeholder="Search places"
             ></input>
             <div className={toggles}>
               {filteredHotels.map((hotel) => {
@@ -155,6 +155,7 @@ const FetchHotels = () => {
   function onBookNow(e, item) {
     setShowModal(!showModal);
     setModalItem(item);
+
     console.log(item);
   }
   if (loading === true) {
@@ -170,7 +171,7 @@ const FetchHotels = () => {
     return (
       <>
         <div className="form-container">
-          <form className="form">
+          <form className="form search-container">
             <input
               onChange={handleSearch}
               className="search"
