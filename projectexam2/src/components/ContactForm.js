@@ -37,11 +37,10 @@ const ContactForm = () => {
     onSubmit: async (values) => {
       setSubmitting(true);
       setPostError(null);
-      console.log(values);
 
       try {
         const response = await axios.post(`${api_url}/contacts`, values);
-        console.log(response.data);
+        console.log(response);
         setSuccess(true);
       } catch (error) {
         console.log("Error", error);

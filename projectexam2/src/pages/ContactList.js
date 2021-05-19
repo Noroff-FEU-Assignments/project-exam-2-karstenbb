@@ -22,7 +22,6 @@ const ContactList = () => {
         const response = await http.get(`${api_url}/contacts`);
         setMessages(response.data);
         setLoading(true);
-        console.log(response.data);
       } catch (error) {
         console.log("error: ", error);
         setError(error.toString());

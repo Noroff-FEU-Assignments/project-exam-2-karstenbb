@@ -35,11 +35,10 @@ const LoginForm = () => {
     onSubmit: async (values) => {
       setSubmitting(true);
       setLoginError(null);
-      console.log(values);
 
       try {
         const response = await axios.post(`${api_url}${AUTH_PATH}`, values);
-        console.log(response.data);
+
         setAuth(response.data);
         if (response.status === 200) {
           history.push("/addplace");

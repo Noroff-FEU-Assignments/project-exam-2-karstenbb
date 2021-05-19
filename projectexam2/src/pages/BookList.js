@@ -13,7 +13,6 @@ const BookList = () => {
       .then((res) => res.json())
       .then(
         (result) => {
-          console.log(result);
           setLoading(false);
           setPlaces(result);
         },

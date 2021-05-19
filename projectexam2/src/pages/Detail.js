@@ -65,7 +65,7 @@ const Detail = () => {
     const fetchHotels = async () => {
       try {
         const response = await axios.get(url);
-        console.log(response.data);
+
         if (response.status === 200) {
           setHotels(response.data);
         } else {

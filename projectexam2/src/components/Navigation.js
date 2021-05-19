@@ -19,7 +19,6 @@ const Navigation = () => {
   };
   return (
     <>
-      {console.log(hideMenu)}
       <div className="navbar">
         <div className="left">
           <div className="nav__left">
@@ -86,7 +85,7 @@ const Navigation = () => {
                       onClick={() => sethideMenu(!hideMenu)}
                       className="nav__item"
                     >
-                      List
+                      Enquiries
                     </li>
                   </NavLink>
                   <NavLink

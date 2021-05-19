@@ -42,11 +42,10 @@ const AddPlace = () => {
     onSubmit: async (values) => {
       setSubmitting(true);
       setPostError(null);
-      console.log(values);
 
       try {
         const response = await http.post(`${api_url}/hotels`, values);
-        console.log(response.data);
+
         setSuccess(true);
       } catch (err) {
         console.log("Error", err);

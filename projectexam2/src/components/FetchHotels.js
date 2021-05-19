@@ -35,11 +35,12 @@ const FetchHotels = () => {
       picture: yup.string().required(),
       startdate: yup
         .date()
-        .min(new Date(Date.now() - 86400000), "Please enter a current date"),
+        .min(new Date(Date.now() - 86400000), "Please enter a date later")
+        .required("Please enter a start date"),
       enddate: yup
         .date()
-        .min(new Date(Date.now() - 86400000), "Please enter a current date")
-        .required("Please enter a start date"),
+        .min(new Date(Date.now() - 86400000), "Please enter a end date")
+        .required("Please enter a end date"),
     }),
     onSubmit: async (values) => {
       let data = {
@@ -54,7 +55,6 @@ const FetchHotels = () => {
         const response = await axios.post(`${api_url}/bookings`, data);
         setSuccess(true);
         setModalItem(response.data);
-        console.log(response.data);
       } catch (error) {
         console.log("error", error.toString());
       } finally {
@@ -68,7 +68,6 @@ const FetchHotels = () => {
       .then((res) => res.json())
       .then(
         (result) => {
-          console.log(result);
           setLoading(false);
           setPlaces(result);
         },
@@ -160,8 +159,6 @@ const FetchHotels = () => {
   function onBookNow(e, item) {
     setShowModal(!showModal);
     setModalItem(item);
-
-    console.log(item);
   }
   if (loading === true) {
     return (
