@@ -17,7 +17,7 @@ const FetchHotels = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalItem, setModalItem] = useState({});
   const [submitting, setSubmitting] = useState(false);
-  const [startdate, setStartDate] = useState(new Date());
+  const [startdate, setStartDate] = useState(new Date(Date.now() - 86400000));
   const [enddate, setEndDate] = useState(new Date());
   const [success, setSuccess] = useState(null);
 
@@ -33,8 +33,13 @@ const FetchHotels = () => {
       title: yup.string().required(),
       price: yup.number().required(),
       picture: yup.string().required(),
-      startdate: yup.date().required("required"),
-      enddate: yup.date().required("required"),
+      startdate: yup
+        .date()
+        .min(new Date(Date.now() - 86400000), "Please enter a current date"),
+      enddate: yup
+        .date()
+        .min(new Date(Date.now() - 86400000), "Please enter a current date")
+        .required("Please enter a start date"),
     }),
     onSubmit: async (values) => {
       let data = {
