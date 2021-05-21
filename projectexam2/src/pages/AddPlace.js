@@ -14,9 +14,11 @@ const AddPlace = () => {
   const [auth] = useContext(AuthContext);
   const history = useHistory();
 
+  // If you are not logged in, you get sent to the login site
   if (!auth) {
     history.push("/login");
   }
+  // Form validationSchema
   const {
     handleSubmit,
     handleChange,
@@ -43,6 +45,7 @@ const AddPlace = () => {
       setSubmitting(true);
       setPostError(null);
 
+      // The post request to the api adding a new place
       try {
         const response = await http.post(`${api_url}/hotels`, values);
         console.log(response);

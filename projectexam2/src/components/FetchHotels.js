@@ -21,6 +21,7 @@ const FetchHotels = () => {
   const [enddate, setEndDate] = useState(new Date());
   const [success, setSuccess] = useState(null);
 
+  // Schema for booking
   const { handleSubmit, handleChange, register, values } = useFormik({
     initialValues: {
       title: "",
@@ -42,6 +43,8 @@ const FetchHotels = () => {
         .min(new Date(Date.now() - 86400000), "Please enter a end date")
         .required("Please enter a end date"),
     }),
+
+    // Onsubmit function that sends values and data to the api
     onSubmit: async (values) => {
       let data = {
         ...modalItem,
@@ -51,6 +54,7 @@ const FetchHotels = () => {
 
       setSubmitting(true);
 
+      // The post request
       try {
         const response = await axios.post(`${api_url}/bookings`, data);
         setSuccess(true);
@@ -63,6 +67,7 @@ const FetchHotels = () => {
     },
   });
 
+  // Fetching all the places to stay
   useEffect(() => {
     fetch(api_url + "/hotels")
       .then((res) => res.json())
@@ -77,6 +82,8 @@ const FetchHotels = () => {
         }
       );
   }, []);
+
+  // The search function that updates the whole site and the typeahead dropdown
   function handleSearch(e) {
     let filterHotels = places.filter((place) => {
       return place.title.toLowerCase().includes(e.target.value.toLowerCase());
@@ -93,11 +100,14 @@ const FetchHotels = () => {
       setToggles("closed");
     }
   }
+
+  // If the filter input is empty, set the useState to false
   const filterInput = document.querySelector(".search");
   if (filterInput === "") {
     setFiltered(false);
   }
 
+  // If filter is true, return this
   if (filtered === true) {
     return (
       <>
@@ -156,10 +166,14 @@ const FetchHotels = () => {
       </>
     );
   }
+
+  // When pressing the book now button, open/close the modal, and put the item inside the modalItem state
   function onBookNow(e, item) {
     setShowModal(!showModal);
     setModalItem(item);
   }
+
+  // Show a loader when the page wait for the content
   if (loading === true) {
     return (
       <div className="sweet-loading">

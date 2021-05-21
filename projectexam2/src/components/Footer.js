@@ -2,6 +2,7 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
 
 const Footer = () => {
+  // straight forward footer
   return (
     <footer>
       <div className="footer">

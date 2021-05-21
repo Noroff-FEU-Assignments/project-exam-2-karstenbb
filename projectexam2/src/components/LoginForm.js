@@ -12,6 +12,8 @@ const LoginForm = () => {
   const [submitting, setSubmitting] = useState(false);
   const [loginError, setLoginError] = useState(null);
   const history = useHistory();
+
+  // The form validationSchema
   const {
     handleSubmit,
     handleChange,
@@ -36,6 +38,7 @@ const LoginForm = () => {
       setSubmitting(true);
       setLoginError(null);
 
+      // The post request and login
       try {
         const response = await axios.post(`${api_url}${AUTH_PATH}`, values);
 

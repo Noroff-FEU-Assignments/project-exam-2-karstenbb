@@ -13,9 +13,13 @@ const ContactList = () => {
   const history = useHistory();
   const [auth] = useContext(AuthContext);
   const [color] = useState("black");
+
+  // Not logged in, sent you back to login page
   if (!auth) {
     history.push("/login");
   }
+
+  // Fetching contact list
   useEffect(() => {
     async function fetchData() {
       try {
@@ -31,6 +35,8 @@ const ContactList = () => {
     }
     fetchData();
   }, []);
+
+  // Error message
   if (error) {
     return <div>An error occured</div>;
   }

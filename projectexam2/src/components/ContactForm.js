@@ -10,6 +10,8 @@ const ContactForm = () => {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(null);
   const [, setPostError] = useState(null);
+
+  // Form for post request and submit errors
   const {
     handleSubmit,
     handleChange,
@@ -34,10 +36,12 @@ const ContactForm = () => {
         .min(10, "The message must be at least 10 characters long")
         .required("Please enter a message"),
     }),
+    // Onsubmit function that sends values to api
     onSubmit: async (values) => {
       setSubmitting(true);
       setPostError(null);
 
+      // The post request
       try {
         const response = await axios.post(`${api_url}/contacts`, values);
         console.log(response);
@@ -50,6 +54,8 @@ const ContactForm = () => {
       }
     },
   });
+
+  //return
   return (
     <div className="form__wrapper">
       <form className="contact__form" onSubmit={handleSubmit}>

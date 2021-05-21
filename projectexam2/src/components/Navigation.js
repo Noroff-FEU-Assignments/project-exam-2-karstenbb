@@ -8,10 +8,13 @@ const Navigation = () => {
   const [hideMenu, sethideMenu] = useState(false);
   const [auth, setAuth] = useContext(AuthContext);
 
+  // The logout button function, toggle the menu, and set the auth useState to null
   function logOut() {
     setAuth(null);
     sethideMenu(!hideMenu);
   }
+
+  // When resizing the page, it changes the state to false, so the mobile menu are not open all the time
   window.onresize = () => {
     if (window.innerWidth >= 610) {
       sethideMenu(false);
@@ -30,7 +33,10 @@ const Navigation = () => {
         <div className="right">
           <div className="nav__menu" id={hideMenu ? "hidden" : ""}>
             <ul className="nav__list">
+              // I use navlink because I saw in the documentation that there was
+              an "activeStyle" I could style myself there
               <NavLink
+                // I have an onClick on every link in the menu, so when pressed it toggles the mobile menu
                 onClick={() => sethideMenu(!hideMenu)}
                 activeStyle={{ borderBottom: "2px solid black" }}
                 className="nav__link"
@@ -57,7 +63,6 @@ const Navigation = () => {
                   Hotels
                 </li>
               </NavLink>
-
               <NavLink
                 onClick={() => sethideMenu(!hideMenu)}
                 activeStyle={{ borderBottom: "2px solid black" }}

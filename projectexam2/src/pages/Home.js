@@ -1,6 +1,7 @@
 import React from "react";
 import background from "../images/homebackground.jpeg";
 
+// Straight forward home page
 const Home = () => {
   return (
     <>

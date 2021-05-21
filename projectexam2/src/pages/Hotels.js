@@ -1,5 +1,4 @@
 import React from "react";
-
 import FetchHotels from "../components/FetchHotels";
 
 const Hotels = () => {

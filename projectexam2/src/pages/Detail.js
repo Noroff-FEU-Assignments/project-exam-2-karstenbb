@@ -17,6 +17,13 @@ const Detail = () => {
   const [enddate, setEndDate] = useState(new Date());
   const [success, setSuccess] = useState(null);
   const [color] = useState("black");
+  const history = useHistory();
+  const { id } = useParams();
+
+  // If no ID is found, it will send you back to the hotels page
+  if (!id) {
+    history.push("/hotels");
+  }
 
   const { handleSubmit, handleChange, register, values } = useFormik({
     initialValues: {
@@ -33,6 +40,8 @@ const Detail = () => {
       startdate: yup.date().required("required"),
       enddate: yup.date().required("required"),
     }),
+
+    // Onsubmit function that sends values and destruct the modalItem state, and put the dates in a variabel to send
     onSubmit: async (values) => {
       let data = {
         ...modalItem,
@@ -42,6 +51,7 @@ const Detail = () => {
 
       setSubmitting(true);
 
+      // The post request with a payload with the data
       try {
         const response = await axios.post(`${api_url}/bookings`, data);
         setSuccess(true);
@@ -54,12 +64,7 @@ const Detail = () => {
     },
   });
 
-  let history = useHistory();
-  const { id } = useParams();
-
-  if (!id) {
-    history.push("/hotels");
-  }
+  // Fetching the single place to stay
   const url = api_url + "/hotels/" + id;
   useEffect(() => {
     const fetchHotels = async () => {
@@ -79,15 +84,19 @@ const Detail = () => {
     };
     fetchHotels();
   }, [url]);
+
+  // Show loader when loading
   if (loading) {
     <div className="sweet-loading">
       <ClipLoader color={color} loading={loading} size={150} />
     </div>;
   }
+
+  // Show error if there is one
   if (error) {
     return <div>ERROR: An error occured</div>;
   }
-
+  // The booking function on the details page
   function onBookNow(e) {
     setShowModal(!showModal);
     setModalItem(hotels);

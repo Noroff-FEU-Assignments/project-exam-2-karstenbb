@@ -11,10 +11,12 @@ const BookList = () => {
   const [auth] = useContext(AuthContext);
   const history = useHistory();
 
+  // Not logged in, sent you back to login page
   if (!auth) {
     history.push("/login");
   }
 
+  // Fetch the places that are booked
   useEffect(() => {
     fetch(api_url + "/bookings")
       .then((res) => res.json())
@@ -29,6 +31,8 @@ const BookList = () => {
         }
       );
   }, []);
+
+  // If the page is loading, show a loader
   if (loading) {
     return (
       <div className="sweet-loading">
@@ -36,6 +40,8 @@ const BookList = () => {
       </div>
     );
   }
+
+  // If the api is empty, show this
   if (places.length === 0) {
     return (
       <div className="booklist__body">
