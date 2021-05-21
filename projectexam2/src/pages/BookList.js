@@ -1,12 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { api_url } from "../utils//Constants";
 import ClipLoader from "react-spinners/ClipLoader";
-
+import AuthContext from "../context/AuthContext";
+import { useHistory } from "react-router-dom";
 const BookList = () => {
   const [, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [places, setPlaces] = useState([]);
   const [color] = useState("black");
+  const [auth] = useContext(AuthContext);
+  const history = useHistory();
+
+  if (!auth) {
+    history.push("/login");
+  }
 
   useEffect(() => {
     fetch(api_url + "/bookings")

@@ -45,7 +45,7 @@ const AddPlace = () => {
 
       try {
         const response = await http.post(`${api_url}/hotels`, values);
-
+        console.log(response);
         setSuccess(true);
       } catch (err) {
         console.log("Error", err);
