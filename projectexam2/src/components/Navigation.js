@@ -20,6 +20,7 @@ const Navigation = () => {
       sethideMenu(false);
     }
   };
+  // I use navlink because I saw in the documentation that there was an activeStyle I could style myself there
   return (
     <>
       <div className="navbar">
@@ -33,8 +34,6 @@ const Navigation = () => {
         <div className="right">
           <div className="nav__menu" id={hideMenu ? "hidden" : ""}>
             <ul className="nav__list">
-              // I use navlink because I saw in the documentation that there was
-              an "activeStyle" I could style myself there
               <NavLink
                 // I have an onClick on every link in the menu, so when pressed it toggles the mobile menu
                 onClick={() => sethideMenu(!hideMenu)}
